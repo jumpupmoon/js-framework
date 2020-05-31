@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 5000;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
@@ -21,7 +21,7 @@ mongoose.connect(config.mongoURI, {
     .then(() => console.log('mongoDB connected'))
     .catch(err => console.log(err));
 
-app.get('/', (req, res) => res.send('hello wolrd!'));
+app.get('/api/hello', (req, res) => res.send('hello wolrd!'));
 
 // 가입
 app.post('/api/users/register', (req, res) => {
