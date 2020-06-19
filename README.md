@@ -11,3 +11,4 @@
 # 6/6 node / react -> 영화 리뷰
 
 - https://www.youtube.com/watch?v=e8xMcMXqYGw&list=PL9a7QRYt5fqkowXUgTj_tbkFClsPhO5XV
+- {xImg && <div></div>} -> xImg가 있을 경우 div를 렌더링
