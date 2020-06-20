@@ -8,7 +8,12 @@
 - react 중 redux / hoc(★)
 - 토큰(★)
 
-# 6/6 node / react -> 영화 리뷰
+# 6/6, 6/19 node / react -> 영화 리뷰
 
 - https://www.youtube.com/watch?v=e8xMcMXqYGw&list=PL9a7QRYt5fqkowXUgTj_tbkFClsPhO5XV
 - {xImg && <div></div>} -> xImg가 있을 경우 div를 렌더링
+
+# 6/20 node / react -> 영화 웹
+
+- https://nomadcoders.co/
+- npx create-react-app my-app 으로 react 기본 설정 설치(my-app에는 원하는 폴더 및 프로젝트명 입력)
