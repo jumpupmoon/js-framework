@@ -17,3 +17,13 @@
 
 - https://nomadcoders.co/
 - npx create-react-app my-app 으로 react 기본 설정 설치(my-app에는 원하는 폴더 및 프로젝트명 입력)
+- react component = html을 반환하는 함수
+- jsx = html + javascript
+- props.data = {data}
+- class component는 자동으로 render를 호출함
+- setState가 호출되면 render도 함께 다시 호출됨(state 값을 setState가 아니라 그냥 대입하는 식으로 수정하면 렌더가 되지 않기 때문에 화면에 표시되지 않음)
+- setState({count: this.state.count - 1}) = setState(current => ({count: current.count - 1}))
+- componentDidMount : 컴포넌트가 처음으로 렌더된 후 호출
+- componentDidUpdate : 컴포넌트가 다시 렌더된 후 호출
+- componentWillUnmount : 컴포넌트를 떠날 때 호출
+- 리액트에서 태그 속성으로 쓰이는 class는 className으로 작성 클래스 컴포넌트 사용시 명시되는 클래스와 혼동(브라우저가)할 수 있기 때문
