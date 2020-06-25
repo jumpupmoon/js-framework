@@ -27,3 +27,8 @@
 - componentDidUpdate : 컴포넌트가 다시 렌더된 후 호출
 - componentWillUnmount : 컴포넌트를 떠날 때 호출
 - 리액트에서 태그 속성으로 쓰이는 class는 className으로 작성 클래스 컴포넌트 사용시 명시되는 클래스와 혼동(브라우저가)할 수 있기 때문
+- gh-pages(★)
+- react-router-dom : 네비게이션을 만들어 줌
+- react-router-dom : exact=true로 하지 않으면 겹치는 URL일 때 모두 다 렌더링 함
+  - ex) /user/list/1 -> /user + /user/list + /user/list/1 까지 해당되는 세 컴포넌트를 모두 다 겹치게 렌더링 함
+- a href는 페이지 이동 / router 안에서 link to를 사용하면 리액트가 렌더링만 다시 함
