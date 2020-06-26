@@ -27,7 +27,12 @@
 - componentDidUpdate : 컴포넌트가 다시 렌더된 후 호출
 - componentWillUnmount : 컴포넌트를 떠날 때 호출
 - 리액트에서 태그 속성으로 쓰이는 class는 className으로 작성 클래스 컴포넌트 사용시 명시되는 클래스와 혼동(브라우저가)할 수 있기 때문
-- gh-pages(★)
+- gh-pages
+  - npm i gh-pages
+  - pachage.json 에 "homepage": "https://jumpupmoon.github.io/js-framework" 추가(https://{깃허브 계정}.github.io/{레파지토리명})
+  - pachage.json -> script 에 "deploy": "gh-pages -d build",
+    "predeploy": "npm run build" 추가(preXX 하면 XX 했을 때 preXX를 실행 후 XX 실행 -> npm run deply 명령시 predeply 먼저 실행 후 deploy 실행)
+  - npm run deploy 실행
 - react-router-dom : 네비게이션을 만들어 줌
 - react-router-dom : exact=true로 하지 않으면 겹치는 URL일 때 모두 다 렌더링 함
   - ex) /user/list/1 -> /user + /user/list + /user/list/1 까지 해당되는 세 컴포넌트를 모두 다 겹치게 렌더링 함
