@@ -13,7 +13,7 @@
 - https://www.youtube.com/watch?v=e8xMcMXqYGw&list=PL9a7QRYt5fqkowXUgTj_tbkFClsPhO5XV
 - {xImg && <div></div>} -> xImg가 있을 경우 div를 렌더링
 
-# 6/20 node / react -> 영화 웹
+# 6/20, 6/22, 6/25, 6/26 node / react -> 영화 웹
 
 - https://nomadcoders.co/
 - npx create-react-app my-app 으로 react 기본 설정 설치(my-app에는 원하는 폴더 및 프로젝트명 입력)
@@ -37,3 +37,16 @@
 - react-router-dom : exact=true로 하지 않으면 겹치는 URL일 때 모두 다 렌더링 함
   - ex) /user/list/1 -> /user + /user/list + /user/list/1 까지 해당되는 세 컴포넌트를 모두 다 겹치게 렌더링 함
 - a href는 페이지 이동 / router 안에서 link to를 사용하면 리액트가 렌더링만 다시 함
+
+# 6/26 react native
+
+- expo는 react-create-app과 같음
+  - expo init {폴더명(프로젝트명)}
+  - blank 기본 / blank(typeScript) / tabs(typescript) 이미 화면이 있을 때
+- 아이폰 터미널에서 expo login 후 run on IOS
+- 안드로이드 npm start 후 나오는 expo dev tool에서 QR코드 스캔
+  - local 환경에서 실제 폰으로 테스트 할 경우 같은 wifi에 연결되어 있어야 함
+- react native는 자바스크립트 코드를 IOS의 경우 스위프트, 안드로이드의 경우는 자바로 연결해주는 브릿지 역할을 함(브릿지 역할을 하기 때문에 스위프트 자바 등으로 만든 네이티브 보다는 느림)
+  - 하이브리드 형식의 진화된 버전 느낌 / 속도 하이브리드앱 < 리액트 네이티브 < 네이티브
+  - 일반적인 경우에는 괜찮지만 3D 게임 등 많은 데이터와 처리가 필요한 경우에는 적합하지 않음
+- div -> view / span -> text
