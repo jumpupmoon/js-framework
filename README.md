@@ -13,7 +13,7 @@
 - https://www.youtube.com/watch?v=e8xMcMXqYGw&list=PL9a7QRYt5fqkowXUgTj_tbkFClsPhO5XV
 - {xImg && <div></div>} -> xImg가 있을 경우 div를 렌더링
 
-# 6/20, 6/22, 6/25, 6/26 node / react -> 영화 웹
+# 6/20, 6/22, 6/25, 6/26 node / react -> 영화 웹(노마드코더)
 
 - https://nomadcoders.co/
 - npx create-react-app my-app 으로 react 기본 설정 설치(my-app에는 원하는 폴더 및 프로젝트명 입력)
@@ -38,7 +38,7 @@
   - ex) /user/list/1 -> /user + /user/list + /user/list/1 까지 해당되는 세 컴포넌트를 모두 다 겹치게 렌더링 함
 - a href는 페이지 이동 / router 안에서 link to를 사용하면 리액트가 렌더링만 다시 함
 
-# 6/26 react native
+# 6/26 react native(노마드코더)
 
 - expo는 react-create-app과 같음
   - expo init {폴더명(프로젝트명)}
@@ -50,3 +50,12 @@
   - 하이브리드 형식의 진화된 버전 느낌 / 속도 하이브리드앱 < 리액트 네이티브 < 네이티브
   - 일반적인 경우에는 괜찮지만 3D 게임 등 많은 데이터와 처리가 필요한 경우에는 적합하지 않음
 - div -> view / span -> text
+
+# 7/11 react+node Management System
+
+- https://www.youtube.com/watch?v=_yEH9mczm3g&list=PLRx0vPvlEmdD1pSqKZiTihy5rplxecNpz
+- useEffect(() => {}) componentDidMount + componentDidUpdate
+  - useEffect(() => {}, [x]) x값이 변할 때에만 호출 됨
+  - useEffect(() => {}, []) componentDidMount + componentWillUnmount
+  - useEffect(() => return cleanup() => {}) cleanup = componentWillUnmount(useEffect 호출 될 때마다 cleanup도 호출 됨)
+- react-hook-form
