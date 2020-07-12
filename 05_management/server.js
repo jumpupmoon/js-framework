@@ -19,29 +19,33 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
-const multer = require('multer');
-const upload = multer({des: './upload'});
-
 app.get('/api/customers', (req, res) => {
     connection.query(
-        "SELECT * FROM customer",
+        "SELECT * FROM customer WHERE isDeleted = 0 ORDER BY id DESC LIMIT 5",
         (err, rows, fields) => {
             res.send(rows);
         }
     )
 });
 
-app.use('image', express.static('./upload'));
-
-app.post('/api/customer', upload.single('image'), (req, res) => {
-    let sql = 'INSERT INTO customer VALUES(null, ?, ?, ?, ?, ?)';
+app.post('/api/customer', (req, res) => {
+    let sql = 'INSERT INTO customer VALUES(null, ?, ?, ?, ?, 0, now())';
     let name = req.body.userName;
     let birthday = req.body.birthday;
     let gender = req.body.gender;
     let job = req.body.job;
-    let params = [null, name, birthday, gender, job];
+    let params = [name, birthday, gender, job];
     connection.query(sql, params,
         (err, rows, fields) => {
+            res.send(rows);
+        }
+    )
+})
+
+app.delete('/api/customer/:id', (req, res) => {
+    let sql = 'UPDATE customer SET isDeleted = 1 WHERE id = ?';
+    connection.query(sql, [req.params.id],
+        (err, rows) => {
             res.send(rows);
         }
     )

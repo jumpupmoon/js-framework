@@ -22,23 +22,23 @@ export default function App() {
   const classes = useStyles;
   const [customers, setCustomers] = useState();
   const [completed, setCompleted] = useState(0);
+  const headList = ["번호", "이미지", "이름", "생년월일", "성별", "직업", "설정"]
   
   useEffect(() => {
-    const timer = setInterval(progress, 20);
     callApi()
-      .then(res => setCustomers(res))
       .catch(err => console.log(err));
 
     return () => {
-      clearInterval(timer);
       setCustomers();
     }
   }, []);
 
   const callApi = async () => {
+    const timer = setInterval(progress, 20);
     const response = await fetch('/api/customers');
     const body = await response.json();
-    return body;
+    clearInterval(timer);
+    setCustomers(body);
   }
 
   const progress = () => {
@@ -51,24 +51,22 @@ export default function App() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>번호</TableCell>
-              <TableCell>이미지</TableCell>
-              <TableCell>이름</TableCell>
-              <TableCell>생년월일</TableCell>
-              <TableCell>성별</TableCell>
-              <TableCell>직업</TableCell>
+              {headList.map(h => {
+                return <TableCell>{h}</TableCell>
+              })}
             </TableRow>
           </TableHead>
           <TableBody>
-            {customers ? customers.map((c, i) => 
+            {customers ? customers.map((c) => 
               <Customer
                 key={c.id}
                 id={c.id}
-                image={"http://placeimg.com/64/64/"+i}
+                image={"http://placeimg.com/64/64/"+c.id}
                 name={c.name}
                 birthday={c.birthday}
                 gender={c.gender}
                 job={c.job}
+                callApi={callApi}
               />
             ) : 
               <TableRow>
@@ -80,7 +78,7 @@ export default function App() {
           </TableBody>
         </Table>
       </Paper>
-      <CustomerAdd />
+      <CustomerAdd callApi={callApi} />
     </div>
   );
 }

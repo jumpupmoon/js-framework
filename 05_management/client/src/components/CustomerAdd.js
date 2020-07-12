@@ -1,35 +1,41 @@
 import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {post} from 'axios';
+import {Dialog, DialogActions, DialogTitle, DialogContent, TextField, Button} from '@material-ui/core';
 
-export default function CustomerAdd() {
+export default function CustomerAdd({callApi}) {
     const {register, handleSubmit} = useForm();
+    const [open, setOpen] = useState(false);
 
     const onSubmit = data => {
-        addCustomer(data)
-            .then(res => console.log(res.data));
-        window.location.reload();
+        post('/api/customer', data)
+            .then(res => {
+                openClose();
+                callApi();
+            })
+            .catch(res => console.log(res))
     };
 
-    const addCustomer = (data) => {
-        const url = '/api/customer';
-        const config = {
-            heders: {
-                'content-type': 'multipart/form-data'
-            }
-        }
-        return post(url, data, config);
+    const openClose = () => {
+        setOpen(m => !m);
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <h1>고객 추가</h1>
-            <div>프로필 이미지: <input type="file" name="file" ref={register} /></div>
-            <div>이름 : <input type="text" name="userName" ref={register} /></div>
-            <div>생년월일 : <input type="text" name="birthday" ref={register} /></div>
-            <div>성별 : <input type="text" name="gender" ref={register} /></div>
-            <div>직업 : <input type="text" name="job" ref={register} /></div>
-            <div><button type="submit">추가하기</button></div>
-        </form>
+        <div>
+            <Button variant="contained" color="primary" onClick={openClose}>고객 추가하기</Button>
+            <Dialog open={open} onClose={openClose}>
+                    <DialogTitle>고객 추가</DialogTitle>
+                    <DialogContent>
+                        <div><TextField label="이름" type="text" name="userName" inputRef={register} /></div>
+                        <div><TextField label="생년월일" type="text" name="birthday" inputRef={register} /></div>
+                        <div><TextField label="성별" type="text" name="gender" inputRef={register} /></div>
+                        <div><TextField label="직업" type="text" name="job" inputRef={register} /></div>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button variant="contained" color="primary" onClick={handleSubmit(onSubmit)}>추가</Button>
+                        <Button variant="outlined" color="primary" onClick={openClose}>닫기</Button>
+                    </DialogActions>
+            </Dialog>
+        </div>
     )
 }

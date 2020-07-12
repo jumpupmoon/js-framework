@@ -51,10 +51,10 @@
   - 일반적인 경우에는 괜찮지만 3D 게임 등 많은 데이터와 처리가 필요한 경우에는 적합하지 않음
 - div -> view / span -> text
 
-# 7/11 react+node Management System
+# 7/11, 7/12 react+node Management System
 
 - https://www.youtube.com/watch?v=_yEH9mczm3g&list=PLRx0vPvlEmdD1pSqKZiTihy5rplxecNpz
-- useEffect(() => {}) componentDidMount + componentDidUpdate
+- ★useEffect★(() => {}) componentDidMount + componentDidUpdate
   - useEffect(() => {}, [x]) x값이 변할 때에만 호출 됨
   - useEffect(() => {}, []) componentDidMount + componentWillUnmount
   - useEffect(() => return cleanup() => {}) cleanup = componentWillUnmount(useEffect 호출 될 때마다 cleanup도 호출 됨)
